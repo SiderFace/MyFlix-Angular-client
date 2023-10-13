@@ -184,6 +184,6 @@ export class UserRegistrationService {
          catchError(this.handleError)
       );
    }
-
+ 
 }
 
