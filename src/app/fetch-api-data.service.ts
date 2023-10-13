@@ -33,7 +33,7 @@ export class UserRegistrationService {
       return body || { };
    }
 
-   
+
    // API: POST - User registration
    public userRegistration(userDetails: any): Observable<any> {
       console.log(userDetails);
@@ -55,8 +55,6 @@ export class UserRegistrationService {
          catchError(this.handleError)
       );
    }
-
-
 
    // API: GET - all movies
    getAllMovies(): Observable<any> {
