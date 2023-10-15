@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://siders-myflix.herokuapp.com';
 
 @Injectable({
    providedIn: 'root'
 })
-export class UserRegistrationService {
+export class FetchApiDataService {
    // Inject the HttpClient module to the constructor params
    // This will provide HttpClient to the entire class, making it available via this.http
    constructor(private http: HttpClient) { }
@@ -64,6 +64,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -76,6 +77,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) }
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -88,6 +90,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -100,6 +103,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -113,6 +117,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -126,7 +131,8 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
-         // map((data) => data.FavoriteMovies),
+         map((res: any) => this.extractResponseData(res)),
+         map((data) => data.FavoriteMovies),
          catchError(this.handleError)
       );
    }
@@ -140,6 +146,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -153,6 +160,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -166,6 +174,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
@@ -179,6 +188,7 @@ export class UserRegistrationService {
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
          // map(this.extractResponseData),
+         map((res: any) => this.extractResponseData(res)),
          catchError(this.handleError)
       );
    }
