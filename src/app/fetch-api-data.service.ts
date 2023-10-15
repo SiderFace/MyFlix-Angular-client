@@ -63,7 +63,7 @@ export class UserRegistrationService {
          apiUrl + 'movies', 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -75,7 +75,7 @@ export class UserRegistrationService {
          apiUrl + 'movies/' + title, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) }
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -87,7 +87,7 @@ export class UserRegistrationService {
          apiUrl + 'movies/director/' + directorName, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -99,7 +99,7 @@ export class UserRegistrationService {
          apiUrl + 'movies/genre/' + genreName, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -112,7 +112,7 @@ export class UserRegistrationService {
          apiUrl + 'users/' + username, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -125,8 +125,8 @@ export class UserRegistrationService {
          apiUrl + 'users/' + username, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
-         map((data) => data.FavoriteMovies),
+         // map(this.extractResponseData),
+         // map((data) => data.FavoriteMovies),
          catchError(this.handleError)
       );
    }
@@ -139,7 +139,7 @@ export class UserRegistrationService {
          apiUrl + 'users/' + username + '/movies/' + movieId, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -152,7 +152,7 @@ export class UserRegistrationService {
          apiUrl + 'users/' + username, updatedUser, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -165,7 +165,7 @@ export class UserRegistrationService {
          apiUrl + 'users/' + userid, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
@@ -178,7 +178,7 @@ export class UserRegistrationService {
          apiUrl + 'users/' + username + '/movies/' + movieId, 
          { headers: new HttpHeaders({ Authorization: 'Bearer ' + token }) } 
       ).pipe(
-         map(this.extractResponseData),
+         // map(this.extractResponseData),
          catchError(this.handleError)
       );
    }
