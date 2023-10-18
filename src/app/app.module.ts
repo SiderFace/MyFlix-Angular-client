@@ -53,7 +53,8 @@ const appRoutes: Routes = [
       MatSnackBarModule,
       FormsModule,
       RouterModule.forRoot(appRoutes),
-      MatIconModule
+      MatIconModule,
+      MatCardModule
    ],
    providers: [],
    bootstrap: [AppComponent]

@@ -19,7 +19,7 @@ type User = {
 })
 
 
-export class ProfilePageComponent implements OnInit {
+export class UserProfileComponent implements OnInit {
    user: User = {};
 
    @Input() userData = { 
