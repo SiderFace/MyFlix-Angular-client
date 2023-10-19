@@ -1,13 +1,3 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
-})
-export class UserProfileComponent {
-
-}
 import { Component, Input, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,7 +9,7 @@ type User = {
    Username?: string, 
    Password?: string, 
    Email?: string, 
-   FavoriteMovies?: [] 
+   FavoriteMovies?: string[] 
 }
 
 @Component({
@@ -42,10 +32,13 @@ export class UserProfileComponent implements OnInit {
       public fetchApiData: FetchApiDataService,
       public snackBar: MatSnackBar,
       public router: Router
-   ) {}
+   )  { 
+console.log('UserProfileComponent loaded'); 
+      }
 
    ngOnInit(): void {
       const user = this.getUser();
+console.log('User data from localStorage:', user);
       if (!user._id) {
          this.router.navigate(['welcome']);
          return;
@@ -60,13 +53,13 @@ export class UserProfileComponent implements OnInit {
    }
 
    getUser(): User {
-      return JSON.parse(localStorage.getItem('user') || '{}');
+      return JSON.parse(localStorage.getItem('username') || '{}');
    }
 
    updateUser(): void {
       this.fetchApiData.editUser(this.userData).subscribe((response) => {
 console.log(response)
-         localStorage.setItem('user', JSON.stringify(response))
+         localStorage.setItem('username', JSON.stringify(response))
          this.user = response;
          this.snackBar.open(
             'User Profile updated!', 
