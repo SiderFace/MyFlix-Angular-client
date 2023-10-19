@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { MovieDetailsDialogComponent } from '../movie-detail-dialog/movie-detail-dialog.component';
+import { MovieDetailsDialogComponent } from '../movie-details-dialog/movie-details-dialog.component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,15 +22,15 @@ export class MovieCardComponent {
       public router: Router
    ) { }
 
-      ngOnInit(): void {     
-         const user = localStorage.getItem('user');
-         
-         if (!user) {
-            this.router.navigate(['welcome']);
-            return;
-         }
-         this.getMovies();
+   ngOnInit(): void {     
+      const token = localStorage.getItem('token');
+      
+      if (!token) {
+         this.router.navigate(['welcome']);
+         return;
       }
+      this.getMovies();
+   }
 
 
    getMovies(): void {
@@ -76,10 +76,10 @@ console.log(this.movies);
             { duration: 2000 }
          )
       } );
-   }
-   
-   isFavorite(id: string): boolean {
-      return this.fetchApiData.isFavoriteMovie(id)
+   }   
+  
+   currentFavorite(id: string): boolean {
+      return this.fetchApiData.currentFavoriteMovies(id)
    }
    
    removeFavorite(id: string): void {

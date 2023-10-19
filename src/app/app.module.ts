@@ -22,11 +22,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MovieDetailsDialogComponent } from './movie-details-dialog/movie-details-dialog.component';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 const appRoutes: Routes = [
    { path: 'welcome', component: WelcomePageComponent },
    { path: 'movies', component: MovieCardComponent },
    { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+   { path: 'profile', component: UserProfileComponent }
 ];
 
 @NgModule({
@@ -53,9 +56,11 @@ const appRoutes: Routes = [
       MatSnackBarModule,
       FormsModule,
       RouterModule.forRoot(appRoutes),
-      MatIconModule
+      MatIconModule,
+      MatCardModule
    ],
    providers: [],
+   schemas : [ CUSTOM_ELEMENTS_SCHEMA ],
    bootstrap: [AppComponent]
 })
 
