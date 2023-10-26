@@ -8,7 +8,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 
-export class MovieDetailDialogComponent implements OnInit {
+export class MovieDetailsDialogComponent implements OnInit {
 
    constructor(
       @Inject(MAT_DIALOG_DATA)
