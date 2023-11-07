@@ -37,6 +37,10 @@ console.log('UserProfileComponent loaded');
       }
 
    ngOnInit(): void {
+      console.log(this.fetchApiData.getFavoriteMovies();)
+
+
+
       const user = this.getUser();
 console.log('User data from localStorage:', user);
       if (!user._id) {
